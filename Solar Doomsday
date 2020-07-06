@@ -1,0 +1,10 @@
+def solution(n):
+    s=0
+    a=[]
+    while s!=n:
+        a.append(solve(n-s))
+        s+=solve(n-s)
+    return a
+
+def solve(n):
+    return ([i**2 for i in range(1,n+1) if i**2<=n][-1])
