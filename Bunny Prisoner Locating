@@ -1,0 +1,18 @@
+def solution(x,y):
+    size=x+y-1
+    a=[1]+[0 for i in range(1,size)]
+    
+    for c,v in enumerate(a):
+        if c==0:
+            continue
+        else:
+            a[c]=a[c-1]+c
+    b=[]      
+ 
+    for i in range(0,size):
+        if i==0:
+            b.append(a[y-1])
+        else:
+            b.append(y+i+b[i-1])
+
+    return str(b[x-1])
