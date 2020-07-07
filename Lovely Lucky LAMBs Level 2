@@ -1,0 +1,13 @@
+def solution(total_lambs):
+    minimum=[1,1]
+    maximum=[1,2]
+    
+    while (sum(maximum)<=total_lambs):
+        maximum.append(2*maximum[len(maximum)-1])
+    maximum.pop(len(maximum)-1)
+    
+    while (sum(minimum)<=total_lambs):
+        minimum.append(minimum[len(minimum)-2]+minimum[len(minimum)-1])
+    minimum.pop(len(minimum)-1)
+
+    return (len(minimum)-len(maximum))
