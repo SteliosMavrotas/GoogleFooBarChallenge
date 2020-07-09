@@ -1,0 +1,10 @@
+def solution(m,f):
+    m,f=int(m),int(f)
+    count=0
+    while not (m == 1 or f == 1):
+        if f<=0 or m<=0:
+            return "impossible"
+        
+        count+=int(m/f)
+        m,f=f,m%f
+    return str(count+m-1)
