@@ -1,0 +1,23 @@
+def solution(n):
+    count=0
+    n=int(n)
+    a=[2**i for i in range(2,10000)]
+    while n>>1!=0:
+        if n&1!=0: #if number n is odd
+            if n&2!=0 and n>>1!=1:
+                n=(n+1)>>1
+                count+=2
+            elif n&2!=0 and n>>1==1:
+                n-=1
+                count+=1
+            else:
+                n=(n-1)>>1
+                count+=2
+        else:
+            if n in a:
+                count+=a.index(n)+2
+                break
+            else:        
+                n=n>>1
+                count+=1
+    return count
